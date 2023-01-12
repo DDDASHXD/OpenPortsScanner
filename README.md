@@ -44,13 +44,14 @@ To specify a timeout (after how long it determines that the port isn't working i
 ## All arguments
 | Argument        | Type    | Description                                                                                                                                       | Default value |
 |-----------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| -i or --ip      | String  | Select the ip to scan on                                                                                                                          | null          |
-| -h or --help    | Boolean | Show the help screen                                                                                                                              | false         |
-| -r or --range   | String  | Determine the range of ports to change for                                                                                                        | 0-9999        |
-| -t or --timeout | Number  | Determine how long it should take before giving up on a<br>port(in ms)                                                                            | 5000          |
-| -S or --secure  | Boolean | Check for ports using HTTPS instead of HTTP                                                                                                       | false         |
+| -i or --ip      | String  | Specify the ip to scan on.                                                                                                                        | null          |
+| -h or --help    | Boolean | Show the available arguments.                                                                                                                     | false         |
+| -v or --version | Boolean | Show the current version.                                                                                                                         | false         |
+| -r or --range   | String  | Determine the range of ports to scan for.                                                                                                         | 0-9999        |
+| -t or --timeout | Number  | Determine how long it should take before giving up on a<br>port(in ms) and determine that it doesn't work.                                        | 5000          |
+| -S or --secure  | Boolean | Check for ports using HTTPS instead of HTTP.                                                                                                      | false         |
 | -s or --sleep   | Number  | Determine how long the program should wait before trying<br>a new port(in ms). If you're not getting any results,<br>please try to increase this. | 50            |
-| -o or --output  | String  | Set the output file for the working ports, if none is set<br>it just displays the working ports in the console                                    | null          |
+| -o or --output  | String  | Set the output file for the working ports, if none is set<br>it just displays the working ports in the console.                                   | null          |
 
 ## Make OPS global
 

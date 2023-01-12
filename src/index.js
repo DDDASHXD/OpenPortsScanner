@@ -18,6 +18,7 @@ let timeout = 5000;
 let secure = false;
 let sleep = 50;
 let output = false;
+let showVersion = false;
 
 let version = pjson.version
 
@@ -38,6 +39,10 @@ const tag = `
 args.forEach((arg, index) => {
     if (arg === "-h" || arg === "--help") {
         help = true;
+    }
+
+    if (arg === "-v" || arg === "--version") {
+        showVersion = true;
     }
 
     if (arg === "-i" || arg === "--ip") {
@@ -75,6 +80,11 @@ const bar1 = new cliProgress.SingleBar({
     hideCursor: true,
     forceRedraw: true,
 });
+
+if (showVersion) {
+    console.log(`OpenPortsScanner version ${version}`)
+    exit();
+}
 
 if (!ip && !help) {
     console.log(`${colors.bgRed(colors.black("ERROR:"))} ${colors.red("You need to specify an ip.")}`)
