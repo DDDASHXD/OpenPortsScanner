@@ -11,7 +11,7 @@
 A CLI tool by @DASHISTRASH and @ROUTERRAGE
 
 ```
-OpenPortsScanner (OPS) is a CLI tool that tests all open ports on a given IP. It is open-source and incredibly powerful, making it the go-to choice for developers and network engineers.
+OpenPortsScanner (OPS) is a CLI tool that tests all open ports on a given IP. It is open-source and incredibly powerful, making it an excellent addition to your OSINT toolbox.
 
 ## Features
 
