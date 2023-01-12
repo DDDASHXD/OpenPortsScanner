@@ -61,6 +61,8 @@ Here's how to do it on Windows and Linux:
 _Coming soon!_
 
 ### Linux
+On linux, you need to have root access to move move the executable to the global path folder.
+
 1. `CD` to the download location
 2. use the command `$sudo mv ./ops-linux /usr/bin/ops`
 
