@@ -114,7 +114,7 @@ const parseArguments = (args) => {
   const initialValues = {
     help: false,
     ip: "",
-    range: "8000-9000",
+    range: "0-9999",
     timeout: 5000,
     secure: false,
     sleep: 50,
