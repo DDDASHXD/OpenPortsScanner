@@ -66,8 +66,9 @@ On linux, you need to have root access to move move the executable to the global
 
 1. `CD` to the download location
 2. use the command `$sudo mv ./ops-linux /usr/bin/ops`
+3. use the command `$sudo chmod +x /usr/bin/ops`
 
-This moves `ops-linux` to `/usr/bin` and renames it to `ops`, after restarting the terminal you should be able to run `ops` anywhere.
+This moves `ops-linux` to `/usr/bin`, renames it to `ops` and changes the permissions to allow it to run. After restarting the terminal you should be able to run `ops` anywhere.
 
 ## Made with ❤️ by @dashistrash and @routerrage
 
