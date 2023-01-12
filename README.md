@@ -52,6 +52,18 @@ To specify a timeout (after how long it determines that the port isn't working i
 | -s or --sleep   | Number  | Determine how long the program should wait before trying<br>a new port(in ms). If you're not getting any results,<br>please try to increase this. | 50            |
 | -o or --output  | String  | Set the output file for the working ports, if none is set<br>it just displays the working ports in the console                                    | null          |
 
+## Make OPS global
+
+If you want to use OPS anywhere on your system, you need to add it to your systems global path.
+Here's how to do it on Windows and Linux:
+
+### Windows
+_Coming soon!_
+
+### Linux
+1. `CD` to the download location
+2. use the command `$sudo mv ./ops-linux /usr/bin`
+
 ## Made with ❤️ by @dashistrash and @routerrage
 
 OpenPortsScanner (OPS) is made with love by [@dashistrash](https://github.com/dashistrash) and [@routerrage](https://github.com/routerrage).
