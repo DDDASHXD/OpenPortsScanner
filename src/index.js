@@ -6,30 +6,33 @@ const os = require("os")
 const cliProgress = require("cli-progress");
 const colors = require('ansi-colors');
 const { Console } = require('console');
+const pjson = require("../package.json");
 
 const args = process.argv.slice(2)
 
 // Settings
 let help = false;
 let ip = false;
-let range = "0-1000";
-let timeout = 500;
+let range = "0-9999";
+let timeout = 5000;
 let secure = false;
 let sleep = 50;
 let output = false;
+
+let version = pjson.version
 
 let working = [];
 let failed = [];
 
 
 
-const tag = ` ___________  ______ 
-|  _  | ___ \\/  ___|
-| | | | |_/ /\\ \`--. 
-| | | |  __/  \`--. \\
-\\ \\_/ / |    /\\__/ /
- \\___/\\_|    \\____/ 
-OpenPortsScanner by @DASHISTRASH and @ROUTERRAGE
+const tag = `
+ ___________  ______    OpenPortsScanner by 
+|  _  | ___ \\/  ___|    @DASHISTRASH and @ROUTERRAGE
+| | | | |_/ /\\ \`--.
+| | | |  __/  \`--. \\   
+\\ \\_/ / |    /\\__/ /    Version:
+ \\___/\\_|    \\____/     ${version}
 `
 
 args.forEach((arg, index) => {
@@ -73,34 +76,36 @@ const bar1 = new cliProgress.SingleBar({
     forceRedraw: true,
 });
 
+if (!ip && !help) {
+    console.log(`${colors.bgRed(colors.black("ERROR:"))} ${colors.red("You need to specify an ip.")}`)
+    help = true;
+}
+
 if (help) {
     console.log(tag)
-    console.log("Welcome to OpenPortsScanner.")
-    console.log("This tool will help you test if a given IP has any ports open.")
-    console.log("")
-    console.log("-h, --help            Shows this help menu.")
-    console.log("-i, --ip              Specify IP to test.")
-    console.log("-r, --range           Specify the range to test in.")
-    console.log("                           E.G. 1000-2000")
-    console.log("                           (Default: 0-9999)")
-    console.log("")
-    console.log("-t, --timeout         Set the timeout for each request(in ms)")
-    console.log("                           (Default: 500)")
-    console.log("")
-    console.log("-S, --secure          Use this if the site or IP uses SSL")
-    console.log("-s, --sleep           Use this to set a timeout for each request.(in ms)")
-    console.log("                      Sometimes it's possible to make too many requests,")
-    console.log("                      This helps withs spacing them out.")
-    console.log("                           (Default: 50)")
-    console.log("")
-    console.log("-o, --output          Specify a file to output to.")
+    console.log(`Welcome to OpenPortsScanner.
+This tool will help you test if a given IP has any ports open.    
+
+-h, --help              Shows this help menu.
+-v, --version           Shows the current version.
+-i, --ip                Specify IP to test.
+-r, --range             Specify the range to test in.
+                            E.G. 1000-2000
+                            (Default: ${range})
+
+-t, --timeout           Set the timeout for each request(in ms)
+                            (Default: ${timeout})
+
+-S, --secure            Use this if the site or IP uses SSL
+-s, --sleep             Use this to set a timeout for each request.(in ms)
+                        Sometimes it's possible to make too many requests,
+                        This helps withs spacing them out.
+                            (Default: ${sleep})
+
+-o, --output            Specify a file to output to.`)
     exit()    
 }
 
-if (!ip) {
-    console.log("You need to specify an IP.")
-    exit();
-}
 
 const writeFile = () => {
     fs.writeFile(`${output}`, `ip: ${ip}, ${working.toString()}`, err => {
