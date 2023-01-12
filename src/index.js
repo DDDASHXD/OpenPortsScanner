@@ -15,6 +15,7 @@ let ip = false;
 let range = "0-1000";
 let timeout = 500;
 let secure = false;
+let sleep = 50;
 let output = false;
 
 let working = [];
@@ -48,8 +49,12 @@ args.forEach((arg, index) => {
         timeout = Number(args[index + 1])
     }
 
-    if (arg === "-s" || arg === "--secure") {
+    if (arg === "-S" || arg === "--secure") {
         secure = true
+    }
+
+    if (arg === "-s" || arg === "--sleep") {
+        sleep = Number(args[index + 1])
     }
 
     if (arg === "-o" || arg === "--output") {
@@ -61,7 +66,7 @@ const minRange = Number(range.split("-")[0]);
 const maxRange = Number(range.split("-")[1]);
 
 const bar1 = new cliProgress.SingleBar({
-    format: 'Progress |' + colors.cyan('{bar}') + '| {percentage}% | {value}/{total} Checked | ETA: {eta_formatted} | ' + colors.greenBright('Success: {success}') + ' ' + colors.red('Fail: {fail}') + ' | Current: {current}',
+    format: 'Progress |' + colors.cyan('{bar}') + '| {percentage}% | {value}/{total} Checked | ' + colors.greenBright('Success: {success}') + ' ' + colors.red('Fail: {fail}') + ' | Current: {current}',
     barCompleteChar: '\u2588',
     barIncompleteChar: '\u2591',
     hideCursor: true,
@@ -82,7 +87,12 @@ if (help) {
     console.log("-t, --timeout         Set the timeout for each request(in ms)")
     console.log("                           (Default: 500)")
     console.log("")
-    console.log("-s, --secure          Use this if the site or IP uses SSL")
+    console.log("-S, --secure          Use this if the site or IP uses SSL")
+    console.log("-s, --sleep           Use this to set a timeout for each request.(in ms)")
+    console.log("                      Sometimes it's possible to make too many requests,")
+    console.log("                      This helps withs spacing them out.")
+    console.log("                           (Default: 50)")
+    console.log("")
     console.log("-o, --output          Specify a file to output to.")
     exit()    
 }
@@ -137,8 +147,8 @@ const run = async () => {
 
     const promises = [];
     for (let i = minRange; i < maxRange; i++) {
-        if (i % 10 === 0) {
-            //await new Promise(resolve => setTimeout(resolve, 1000));
+        if (i % 10 === 0 && sleep) {
+            await new Promise(resolve => setTimeout(resolve, sleep));
         }
         promises.push(runTest({
             url: `http${secure ? "s" : ""}://${ip}:${i}`,
