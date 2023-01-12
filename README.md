@@ -63,6 +63,7 @@ _Coming soon!_
 ### Linux
 1. `CD` to the download location
 2. use the command `$sudo mv ./ops-linux /usr/bin/ops`
+
 This moves `ops-linux` to `/usr/bin` and renames it to `ops`, after restarting the terminal you should be able to run `ops` anywhere.
 
 ## Made with ❤️ by @dashistrash and @routerrage
