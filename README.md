@@ -19,6 +19,9 @@ OpenPortsScanner (OPS) is a CLI tool that tests all open ports on a given IP. It
 * 🚀 **Powerful**: OPS is incredibly powerful, allowing users to quickly check for open ports on a given IP address.
 * 💪 **Flexible**: OPS has many options for customizing the port scan, including a range of ports to check for, a timeout for determining if a port is open or closed, and the ability to output results to a file.
 
+## Drawbacks
+Currently, OPS only supports scanning for open HTTP/HTTPS ports. In the future, it'll be able to scan for all open TCP and UDP ports on a given IP.
+
 ## How to Use
 
 Using OpenPortsScanner (OPS) is easy and straightforward. To get the help screen, use:
