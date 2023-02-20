@@ -7,9 +7,9 @@
 \ \_/ / |_) |  __/ | | | | | (_) | |  | |_/\__/ / (_| (_| | | | | | | |  __/ |   
  \___/| .__/ \___|_| |_\_|  \___/|_|   \__\____/ \___\__,_|_| |_|_| |_|\___|_|   
       | |                                                                        
-      |_|                                                                        
-A CLI tool by @DASHISTRASH and @ROUTERRAGE
-
+      |_|                 
+      
+A CLI tool by @DASHISTRASH
 ```
 OpenPortsScanner (OPS) is a CLI tool that tests all open ports on a given IP. It is open-source and incredibly powerful, making it an excellent addition to your OSINT toolbox.
 
