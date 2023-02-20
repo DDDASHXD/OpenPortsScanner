@@ -73,6 +73,6 @@ On linux, you need to have root access to move move the executable to the global
 
 This moves `ops-linux` to `/usr/bin`, renames it to `ops` and changes the permissions to allow it to run. After restarting the terminal you should be able to run `ops` anywhere.
 
-## Made with ❤️ by @dashistrash and @routerrage
+## Made with ❤️ by @dashistrash
 
-OpenPortsScanner (OPS) is made with love by [@dashistrash](https://github.com/dashistrash) and [@routerrage](https://github.com/routerrage).
+OpenPortsScanner (OPS) is made with love by [@dashistrash](https://github.com/dashistrash).
